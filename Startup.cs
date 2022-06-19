@@ -52,8 +52,10 @@ namespace Shopbridge
 
             services.AddScoped<IInventory , Inventory>();
 
+            //Added Cache Implementation in singleton as single objet will be used to manage requests thoroughout life of application
             services.AddSingleton<ICache , StaticMemoryCacheImplementation>();
 
+            //Added Broadcast Implementation in singleton as single objet will be used to manage requests thoroughout life of application
             services.AddSingleton<IBroadCast , WebSocketController>();
         }
 
