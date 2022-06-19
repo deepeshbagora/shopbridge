@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "574e9ed7-cf5c-4a98-b9d0-d3f0c04e68e3",
+		"name": "ShopBridge",
+		"description": "This collection will help in testing APIs which are offered in Shop bridge API project.\n\nBy using this collection we can test APIs one by one or multiple test cases sequentially with .csv file as data source.\n\nThis API consists a Broadcast API which is used in application to internally push messages to UI async like when an product goes below threshold notify users to do action on that without polling.\n\nto Test Broadacast API: Subscribe to **wss://{{your URL}}ws**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11160172"
+	},
+	"item": [
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Get Inventory Total Value",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Inventory",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Inventory Items and Cost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Inventory/List",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Inventory",
+								"List"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of all the products whose Remaining Quantity is less than threshold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Inventory/ThresholdReport",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Inventory",
+								"ThresholdReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productID\": 1,\n    \"quantity\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseAPIsURL}}//Inventory/AddQuantity",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"",
+								"Inventory",
+								"AddQuantity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productID\": {{ProductID}},\n    \"quantity\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Inventory/ReduceQuantity",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Inventory",
+								"ReduceQuantity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All products basic information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Complete Information Of Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products/Complete",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products",
+								"Complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basic information of Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products/{{ProductID}}",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products",
+								"{{ProductID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Complete information of Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products/Complete/{{ProductID}}",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products",
+								"Complete",
+								"{{ProductID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_Id\": 0,\n    \"productName\": \"Sample Product\",\n    \"remainingQuaitity\": 20,\n    \"threashHoldQuantity\": 10,\n    \"buyingPrice\": 16000,\n    \"vendorID\": 1,\n    \"cost\": 20000,\n    \"category\": \"Sample category\",\n    \"description\": \"Sample description\",\n    \"features\": \"Sample features\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_Id\": {{ProductID}},\n    \"productName\": \"Sample Product\",\n    \"remainingQuaitity\": 20,\n    \"threashHoldQuantity\": 10,\n    \"buyingPrice\": 17000,\n    \"vendorID\": 1,\n    \"cost\": 20000,\n    \"category\": \"Sample category\",\n    \"description\": \"Sample description\",\n    \"features\": \"Sample features\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products/{{ProductID}}",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products",
+								"{{ProductID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseAPIsURL}}/Products/{{ProductID}}",
+							"host": [
+								"{{BaseAPIsURL}}"
+							],
+							"path": [
+								"Products",
+								"{{ProductID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Broadcast",
+			"item": [
+				{
+					"name": "BroadCast Messeges",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"reason\": \"string\",\n  \"description\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:5001/BroadCast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"BroadCast"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseAPIsURL",
+			"value": "https://localhost:5001/api",
+			"type": "string"
+		},
+		{
+			"key": "ProductID",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
